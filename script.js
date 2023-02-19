@@ -1,5 +1,5 @@
-let headTitle = document.getElementById('header-title')
-let head = document.getElementById('main-header')
+// let headTitle = document.getElementById('header-title')
+// let head = document.getElementById('main-header')
 // let item = document.getElementById('add-item')
 // head.style.borderBottom = '3px solid black'
 // item.style.color ='green'
@@ -38,10 +38,62 @@ let head = document.getElementById('main-header')
 
 // let titles = document.querySelectorAll('.title');
 
-let even = document.querySelectorAll('li:nth-child(even)')
-even[0].style.color ='green'
+// let even = document.querySelectorAll('li:nth-child(even)')
+// even[0].style.color ='green'
 
-let odd = document.querySelectorAll('li:nth-child(odd)')
-for(let i=0;i<odd.length;i++){
-  odd[i].style.background ='green'
-}
+// let odd = document.querySelectorAll('li:nth-child(odd)')
+// for(let i=0;i<odd.length;i++){
+
+
+// TRAVERSING THE DOM
+let itemlist = document.querySelector('#items')
+// parentNode
+// console.log(itemlist.parentNode)
+// itemlist.parentNode.style.backgroundColor = '#f4f4f4'
+
+// childElement
+// console.log(itemlist.childNodes)
+// console.log(itemlist.children)
+// console.log(itemlist.children[1])
+// itemlist.children[1].style.backgroundColor = 'pink'
+
+// firstChild
+// console.log(itemlist.firstChild)
+// console.log(itemlist.firstElementChild)
+// itemlist.firstElementChild.textContent = 'Hello One'
+// lastchildelement
+// itemlist.lastElementChild.textContent ='Hello end'
+
+// nextSibling
+// console.log(itemlist.nextSibling);
+// console.log(itemlist.nextElementSibling);
+
+// previousSibling
+// console.log(itemlist.previousSibling);
+
+// previouselementSibling
+// console.log(itemlist.previousElementSibling)
+// itemlist.previousElementSibling.style.color ='teal'
+
+// create Element
+
+// create a div
+
+let newDiv = document.createElement('div')
+// add a class
+newDiv.className = 'hello'
+// Add a Id
+newDiv.id = 'hello1'
+// Add Title
+newDiv.setAttribute('title','Hello Div')
+
+// create text node
+
+let newdivtext = document.createTextNode('hello World')
+newDiv.appendChild(newdivtext)
+let container = document.querySelector('header .container');
+let h1 = document.querySelector('header h1')
+
+console.log(newDiv)
+newDiv.style.fontSize = '30px'
+container.insertBefore(newDiv,h1)
