@@ -46,7 +46,7 @@
 
 
 // TRAVERSING THE DOM
-let itemlist = document.querySelector('#items')
+// let itemlist = document.querySelector('#items')
 // parentNode
 // console.log(itemlist.parentNode)
 // itemlist.parentNode.style.backgroundColor = '#f4f4f4'
@@ -79,21 +79,85 @@ let itemlist = document.querySelector('#items')
 
 // create a div
 
-let newDiv = document.createElement('div')
+// let newDiv = document.createElement('div')
 // add a class
-newDiv.className = 'hello'
+// newDiv.className = 'hello'
 // Add a Id
-newDiv.id = 'hello1'
+// newDiv.id = 'hello1'
 // Add Title
-newDiv.setAttribute('title','Hello Div')
+// newDiv.setAttribute('title','Hello Div')
 
 // create text node
 
-let newdivtext = document.createTextNode('hello World')
-newDiv.appendChild(newdivtext)
-let container = document.querySelector('header .container');
-let h1 = document.querySelector('header h1')
+// let newdivtext = document.createTextNode('hello World')
+// newDiv.appendChild(newdivtext)
+// let container = document.querySelector('header .container');
+// let h1 = document.querySelector('header h1')
 
-console.log(newDiv)
-newDiv.style.fontSize = '30px'
-container.insertBefore(newDiv,h1)
+// console.log(newDiv)
+// newDiv.style.fontSize = '30px'
+// container.insertBefore(newDiv,h1)
+
+// let form = document.getElementById('addForm');
+// let itemlist = document.getElementById('items');
+// itemlist.addEventListener('click',removeItem);
+
+// form.addEventListener('submit',additem)
+// function additem(e){
+//     e.preventDefault();
+//     // console.log('submit')
+//     // Get Input Value
+//     let newItem = document.getElementById('item').value
+//     // create new Li Element
+//     let li = document.createElement('li')
+//     li.className = 'list-group-item'
+//     // Add text note with input value
+//     li.appendChild(document.createTextNode(newItem))
+//     // create the Delete button Element
+//     let deletebutton = document.createElement('button')
+//     // Add class to Delete button
+//     deletebutton.className ='btn btn-danger btn-sm float-right delete'
+//     // Appened TextNote
+//     deletebutton.appendChild(document.createTextNode('X'))
+//     // Appended Detete to Li
+//     li.appendChild(deletebutton)
+//     itemlist.appendChild(li)
+// }
+
+// function removeItem(e){
+//     e.preventDefault();
+//     if(e.target.classList.contains('delete')){
+//         if(confirm('Are you Sure ?')){
+//             let li = e.target.parentElement;
+//             itemlist.removeChild(li)
+//         }
+//     }
+// }
+let itemlist = document.getElementById('items')
+let form = document.getElementById('addForm')
+itemlist.addEventListener('click',removeItem)
+form.addEventListener('submit',additem)
+function additem(e){
+    e.preventDefault();
+    let inputvalue = document.getElementById('item').value
+    console.log(inputvalue)
+let li = document.createElement('li')
+li.className = 'list-group-item'
+li.appendChild(document.createTextNode(inputvalue))
+let deletebtn = document.createElement('button')
+deletebtn.className = 'btn btn-danger btn-sm float-right delete'
+deletebtn.appendChild(document.createTextNode('X'))
+let edit = document.createElement('button')
+edit.className = 'btn btn-primary btn-sm float-right edit'
+edit.appendChild(document.createTextNode('E'))
+li.appendChild(deletebtn)
+li.appendChild(edit)
+itemlist.appendChild(li)
+}
+function removeItem(e){
+    e.preventDefault();
+    if(e.target.classList.contains('delete')){
+        let li = e.target.parentElement
+        itemlist.removeChild(li)
+    }
+}
