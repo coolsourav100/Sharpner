@@ -48,13 +48,29 @@ let form = document.getElementById('addform')
     let list = document.getElementById('list')
     let li = document.createElement('li');
     li.textContent = `Name : ${obj.name}  Email : ${obj.email}  Phone :${obj.phone}`
+    // create Delete Button
     let deletebutton = document.createElement('button');
     deletebutton.textContent ='Delete'
     deletebutton.className ='btn btn-danger float-right'
+    // Create Edit Button
+    let editbtn = document.createElement('button')
+    editbtn.textContent = 'Edit'
+    editbtn.className ='btn btn-primary float-right'
     deletebutton.onclick=()=>{
         localStorage.removeItem(obj.email)
         list.removeChild(li)
     }
+    editbtn.onclick=()=>{
+        localStorage.removeItem(obj.email)
+        list.removeChild(li)
+        let name1  = document.getElementById('name')
+        let email1 = document.getElementById('email')
+        let phone1 = document.getElementById('phone')
+        name1.value = obj.name
+        email1.value = obj.email
+        phone1.value = obj.phone
+    }
+    li.appendChild(editbtn)
     li.appendChild(deletebutton)
     list.appendChild(li)
 
